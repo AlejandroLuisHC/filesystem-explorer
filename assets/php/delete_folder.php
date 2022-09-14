@@ -15,9 +15,6 @@
             rmdir($dirPath);
             header ('Location: ../../index.php');
         } 
-        if($_SESSION['filename'] !== 'index') {
-            unlink('../../'.$_SESSION['filename'].'.php');
-        }
     }
 
     function deleteInnerFiles($path) {

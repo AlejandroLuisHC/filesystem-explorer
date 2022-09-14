@@ -126,8 +126,7 @@ nav {
 }
 
 .alert-delete h2 a { 
-    text-decoration: none;
-    color: #00000faa;
+    color: #1b1b94aa;
 }
 .alert-delete h2 a:hover { 
     color: #002fff;

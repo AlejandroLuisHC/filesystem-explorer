@@ -6,9 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <?php
-    session_start();
-    $page = $_SERVER["REQUEST_URI"];
-    $_SESSION['page'] = $page;
+    $serverPathOrigin = getcwd(); // This function would current path. To deploy, this may be the way to go.
+    $serverPath = 'http://localhost/assembler_projects/php_module/filesystem-explorer';
+    $_SESSION['serverPath'] = $serverPath;
+    $_SESSION['serverPathOrigin'] = $serverPathOrigin;
     require_once('./assets/php/get_files.php');
     require_once('./assets/php/upload_file_form.php');
     require_once('./assets/php/delete_file_form.php');

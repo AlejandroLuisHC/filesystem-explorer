@@ -6,9 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <?php
-    require_once('./assets/php/get_files.php');
-    require_once('./assets/php/upload_file_form.php');
-    require_once('./assets/php/delete_file_form.php');
+    require_once('C:\xampp\htdocs\assembler_projects\php_module\filesystem-explorer/assets/php/get_files.php');
+    require_once('C:\xampp\htdocs\assembler_projects\php_module\filesystem-explorer/assets/php/upload_file_form.php');
+    require_once('C:\xampp\htdocs\assembler_projects\php_module\filesystem-explorer/assets/php/delete_file_form.php');
   ?>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
@@ -16,18 +16,18 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
     crossorigin="anonymous"></script>
-  <link href="./assets/css/index.css" rel="stylesheet">
+  <link href="http://localhost/assembler_projects/php_module/filesystem-explorer/assets/css/index.css" rel="stylesheet">
   <title>File System</title>
 
 </head>
 
 <body>
   <header>
-    <div class="logo"><a href="./index.php">
-      <img src="./assets/img/logo.svg" alt="Logotipo" height="45px">
+    <div class="logo"><a href="http://localhost/assembler_projects/php_module/filesystem-explorer/index.php">
+      <img src="http://localhost/assembler_projects/php_module/filesystem-explorer/assets/img/logo.svg" alt="Logotipo" height="45px">
     </a></div>
     <nav>
-      <form class="d-flex" role="search" action="./assets/php/search_file.php" method="get">
+      <form class="d-flex" role="search" action="http://localhost/assembler_projects/php_module/filesystem-explorer/assets/php/search_file.php" method="get">
         <input class="form-control me-2 search-bar" name="key" type="search" placeholder="Search" aria-label="Search">
         <input class="btn btn-outline-success" type="submit" value="Search">
       </form>
@@ -59,15 +59,15 @@
     <section>
       <h3 class="title-folders">Your folders</h3>
       <ul id="folderManager">
-        <a href="./index.php"><li id="rootFolder">My Files <i class="fa-solid fa-caret-right"></i></li></a>
-        <?php getFolders("./root"); ?>
+        <a href="http://localhost/assembler_projects/php_module/filesystem-explorer/index.php"><li id="rootFolder">My Files <i class="fa-solid fa-caret-right"></i></li></a>
+        <?php getFoldersInner("../../root"); ?>
       </ul>
     </section>
   </aside>
 
   <main>
-    <h3 class="title-files">qué tal <a href="/assembler_projects/php_module/filesystem-explorer/index.php"><i class="fa-solid fa-rotate-left"></i></a></h3>
-    <?php getFiles("./root/qué tal"); ?>
+    <h3 class="title-files">Imágenes <a href="/assembler_projects/php_module/filesystem-explorer/index.php"><i class="fa-solid fa-rotate-left"></i></a></h3>
+    <?php getFilesInner("../..//root/Imágenes"); ?>
   </main>
 
   <!-- MODAL FILE -->
@@ -79,15 +79,15 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="uploadFileForm">
-          <form class ="upload-form" enctype="multipart/form-data" method="post" action="./assets/php/upload_file.php">
+          <form class ="upload-form" enctype="multipart/form-data" method="post" action="http://localhost/assembler_projects/php_module/filesystem-explorer/assets/php/upload_file.php">
             <label for="userfile">Select file:</label>
             <input id ="userfile" name="userfile" type="file" required>
             <label for="filename">Name file:</label>
             <input id ="filename" name="filename" pattern="^([a-zA-Z0-9\s\._-]+)$" type="text" required>
             <label for="directory">Select target folder:</label>
             <select name="directory" id="selectDirectory">
-              <option value="./root/" selected>Folder: My Files</option>
-              <?php uploadOptions('./root') ?>
+              <option value="http://localhost/assembler_projects/php_module/filesystem-explorer/root/" selected>Folder: My Files</option>
+              <?php uploadOptions('C:\xampp\htdocs\assembler_projects\php_module\filesystem-explorer/root') ?>
             </select>
             <div class="modal-footer">
               <input type="submit" class="btn btn-primary" value="Upload" name="submit">
@@ -107,13 +107,13 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="uploadFileForm">
-          <form class ="upload-form" enctype="multipart/form-data" method="post" action="./assets/php/new_folder.php">
+          <form class ="upload-form" enctype="multipart/form-data" method="post" action="http://localhost/assembler_projects/php_module/filesystem-explorer/assets/php/new_folder.php">
             <label for="foldername">Name folder:</label>
             <input id ="foldername" name="foldername" type="text" required>
             <label for="directoryFolder">Select target folder:</label>
             <select name="directoryFolder" id="selectDirectoryFolder">
-              <option value="./root/" selected>Folder: My Files</option>
-              <?php uploadOptions('./root') ?>
+              <option value="http://localhost/assembler_projects/php_module/filesystem-explorer/root/" selected>Folder: My Files</option>
+              <?php uploadOptions('C:\xampp\htdocs\assembler_projects\php_module\filesystem-explorer/root') ?>
             </select>
             <div class="modal-footer">
               <input type="submit" class="btn btn-primary" value="Create" name="submit">
@@ -133,15 +133,15 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="uploadFileForm">
-          <form class ="upload-form" enctype="multipart/form-data" method="post" action="./assets/php/move_file.php">
+          <form class ="upload-form" enctype="multipart/form-data" method="post" action="http://localhost/assembler_projects/php_module/filesystem-explorer/assets/php/move_file.php">
             <label for="file">Select the file you want to move:</label>
             <select name="file" id="selectDirectory">
-              <?php deleteOptions('./root') ?>
+              <?php deleteOptions('C:\xampp\htdocs\assembler_projects\php_module\filesystem-explorer/root') ?>
             </select>
             <label class="location-move" for="destination">Select the location where you want to move it:</label>
             <select name="destination" id="selectDirectory">
-              <option value="./root/" selected>Folder: My Files</option>
-              <?php uploadOptions('./root') ?>
+              <option value="http://localhost/assembler_projects/php_module/filesystem-explorer/root/" selected>Folder: My Files</option>
+              <?php uploadOptions('C:\xampp\htdocs\assembler_projects\php_module\filesystem-explorer/root') ?>
             </select>
             <div class="modal-footer">
               <input type="submit" class="btn btn-primary" value="Move" name="submit">
@@ -161,10 +161,10 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="uploadFileForm">
-          <form class ="upload-form" enctype="multipart/form-data" method="post" action="./assets/php/delete_file.php">
+          <form class ="upload-form" enctype="multipart/form-data" method="post" action="http://localhost/assembler_projects/php_module/filesystem-explorer/assets/php/delete_file.php">
             <label for="file">Select the file you want to delete:</label>
             <select name="file" id="selectDirectory">
-              <?php deleteOptions('./root') ?>
+              <?php deleteOptions('C:\xampp\htdocs\assembler_projects\php_module\filesystem-explorer/root') ?>
             </select>
             <div class="modal-footer">
               <input type="submit" class="btn btn-primary" value="Delete" name="submit">
